@@ -1,97 +1,99 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="hi">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Deva Kirana Store | घर बैठे राशन</title>
-  <meta name="description" content="Deva Kirana Store - अपने आस-पास के गांवों में राशन और रोजमर्रा का सामान घर तक।">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Deva Kirana Store | घर तक राशन</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
 <header class="topbar">
   <div class="brand">
-    <div class="brand-mark">🛒</div>
-    <div><b>DEVA KIRANA STORE</b><span>सामान भरोसेमंद • डिलीवरी आसान</span></div>
+    <div class="logo">🛒</div>
+    <div><h1>DEVA KIRANA STORE</h1><p>राशन और जरूरी सामान — घर तक</p></div>
   </div>
-  <button class="cart-btn" onclick="openCart()">🛒 Cart <span id="cartCount">0</span></button>
+  <button class="cart-btn" onclick="openCart()">🛒 कार्ट <span id="cartCount">0</span></button>
 </header>
 
 <section class="hero">
   <div>
-    <span class="pill">10 km तक डिलीवरी</span>
-    <h1>घर बैठे राशन और रोजमर्रा का सामान</h1>
-    <p>WhatsApp/फोन पर ऑर्डर करें, सामान तैयार करवाएं और अपने समय पर डिलीवरी पाएं।</p>
-    <a class="primary" href="#products">अभी सामान चुनें</a>
-    <a class="secondary" href="#rules">डिलीवरी नियम देखें</a>
+    <span class="tag">TRIAL SERVICE</span>
+    <h2>पूरे महीने का राशन,<br><strong>एक ही बार में घर तक</strong></h2>
+    <p>अब बार-बार दुकान जाने की जरूरत कम करें। सामान चुनें, ऑर्डर करें और हम आपके घर तक पहुँचाने का प्रयास करेंगे।</p>
+    <div class="hero-actions">
+      <a href="#products" class="primary">सामान देखें</a>
+      <a href="tel:9970096337" class="secondary">📞 9970096337</a>
+    </div>
   </div>
   <div class="hero-card">
-    <div class="hero-icon">🏪</div>
-    <h3>Deva Kirana Store</h3>
-    <p>Singapore • Mendra • Lamti • Godi • Kodva Koni • Semradi Nipaniya</p>
-    <strong>📞 9970096337</strong>
+    <div class="big-cart">🛒</div>
+    <h3>घर तक डिलीवरी</h3>
+    <p>समय और आने-जाने के खर्च की बचत</p>
   </div>
 </section>
 
-<section class="features">
-  <div>⚡ <b>तेज़ तैयारी</b><small>ऑर्डर के अनुसार पैकिंग</small></div>
-  <div>🛵 <b>घर तक डिलीवरी</b><small>क्षेत्र के अनुसार 1–2 घंटे</small></div>
-  <div>💵 <b>Cash on Delivery</b><small>डिलीवरी के समय भुगतान</small></div>
-  <div>🛡️ <b>भरोसेमंद सामान</b><small>क्वालिटी पर ध्यान</small></div>
+<section class="benefits">
+  <h2>🌟 आपको क्या फायदा होगा?</h2>
+  <div class="benefit-grid">
+    <div>🏠 <b>पूरे महीने का राशन</b><small>एक साथ घर तक</small></div>
+    <div>⏰ <b>समय की बचत</b><small>बार-बार दुकान जाने की जरूरत कम</small></div>
+    <div>⛽ <b>यात्रा खर्च में बचत</b><small>आने-जाने का पेट्रोल/खर्च कम</small></div>
+    <div>🎉 <b>त्योहारों में राहत</b><small>बाजार की भीड़ से राहत</small></div>
+  </div>
 </section>
 
 <section id="products" class="section">
-  <div class="section-head"><div><span class="eyebrow">हमारा स्टॉक</span><h2>सामान चुनें</h2></div>
-  <input id="search" oninput="renderProducts()" placeholder="🔎 सामान खोजें..."></div>
+  <div class="section-title">
+    <div><span>ऑनलाइन ऑर्डर</span><h2>सामान चुनें</h2></div>
+    <input id="search" type="search" placeholder="🔎 सामान खोजें..." oninput="renderProducts()">
+  </div>
   <div class="categories" id="categories"></div>
-  <div class="products" id="productsGrid"></div>
+  <div class="product-grid" id="productGrid"></div>
 </section>
 
-<section class="order-strip">
-  <div><h2>ऑर्डर का आसान तरीका</h2><p>सामान चुनें → Cart देखें → अपना नाम, गांव और पता भरें → ऑर्डर भेजें</p></div>
-  <button class="primary" onclick="openCart()">🛒 Cart खोलें</button>
-</section>
-
-<section id="rules" class="section rules">
-  <span class="eyebrow">हमारी सेवा</span><h2>डिलीवरी और ऑर्डर नियम</h2>
-  <div class="rule-grid">
-    <article><h3>🕗 ऑर्डर टाइम</h3><p>सुबह के ऑर्डर: 8:00 बजे से रात 8:00 बजे तक। सुबह का ऑर्डर उसी दिन डिलीवरी की कोशिश के अनुसार।</p></article>
-    <article><h3>🛵 डिलीवरी चार्ज</h3><p>0–5 km: ₹20<br>5–8 km: ₹30<br>8–10 km: ₹40</p><b>10 km से ज्यादा: ऑर्डर स्वीकार नहीं।</b></article>
-    <article><h3>💵 Cash on Delivery</h3><p>सामान की डिलीवरी के समय पूरा भुगतान करना आवश्यक है। Payment न मिलने पर डिलीवरी नहीं दी जाएगी।</p></article>
-    <article><h3>⚖️ मात्रा विकल्प</h3><p>1 kg = पूरा 1 किलो<br>500 g = आधा किलो<br>&lt; 500 g = 250 ग्राम</p></article>
-    <article><h3>↩️ Return / Cancellation</h3><p>गलत या खराब सामान होने पर replacement/refund के लिए तुरंत संपर्क करें। सामान्य cancellation डिलीवरी के 1–2 घंटे के अंदर स्वीकार्य नहीं हो सकता।</p></article>
-    <article><h3>📍 क्षेत्र</h3><p>Singapore, Mendra, Lamti, Godi, Kodva Koni, Semradi Nipaniya और आसपास के क्षेत्र।</p></article>
+<section class="info-grid">
+  <div class="info-card">
+    <h3>🚚 डिलीवरी समय</h3>
+    <p><b>सुबह 6:00 बजे तक ऑर्डर</b><br>→ शाम तक डिलीवरी का प्रयास</p>
+    <p><b>शाम 6:00 बजे तक ऑर्डर</b><br>→ अगले दिन सुबह डिलीवरी का प्रयास</p>
+  </div>
+  <div class="info-card">
+    <h3>💳 भुगतान</h3>
+    <p>UPI / Online Payment</p>
+    <p>💵 Cash on Delivery</p>
+  </div>
+  <div class="info-card">
+    <h3>📍 सेवा क्षेत्र</h3>
+    <p>Singarpur • Mendra • Lamti • Godi • Kodva Koni • Semradi Nipaniya</p>
+    <small>शुरुआत में लगभग 100 ग्राहकों तक सीमित सेवा</small>
   </div>
 </section>
 
-<section class="trust">
-  <h2>ग्राहकों के लिए हमारे फायदे</h2>
-  <div class="trust-grid"><span>👨‍👩‍👧‍👦 त्योहार में भीड़ से राहत</span><span>⛽ आने-जाने के खर्च की बचत</span><span>⏱️ समय की बचत</span><span>🛡️ भरोसेमंद और क्वालिटी सामान</span><span>📦 समय पर डिलीवरी</span><span>👍 छोटे ऑर्डर पर भी सुविधा</span></div>
+<section class="trial">
+  <h2>📌 यह अभी केवल ट्रायल सेवा है</h2>
+  <p>हम पहले सीमित ग्राहकों के साथ यह सेवा शुरू कर रहे हैं। आपकी राय और सुझाव हमारे लिए महत्वपूर्ण हैं। सेवा पसंद आने पर इसे आगे बढ़ाने पर विचार किया जाएगा।</p>
+  <a href="tel:9970096337">📞 सुझाव / ऑर्डर: 9970096337</a>
 </section>
 
 <footer>
-  <div><b>DEVA KIRANA STORE</b><p>हमारे साथ जुड़ें, आसान और भरोसेमंद सेवा पाएं।</p></div>
-  <div><b>WhatsApp / Call</b><p>9970096337</p></div>
-  <div><b>Order</b><p><a href="#products">सामान चुनें</a> • <a href="#rules">नियम</a></p></div>
+  <b>DEVA KIRANA STORE</b>
+  <span>गाँव का हर घर — आसान राशन, सही दाम, समय पर सामान</span>
 </footer>
 
-<div class="modal" id="cartModal">
-  <div class="modal-box">
-    <button class="close" onclick="closeCart()">×</button>
-    <h2>आपका Cart</h2><div id="cartItems"></div>
-    <div class="total"><span>सामान का कुल</span><b id="subtotal">₹0</b></div>
-    <div class="delivery-box">
-      <label>डिलीवरी दूरी</label>
-      <select id="distance" onchange="updateCart()"><option value="0">0–5 km — ₹20</option><option value="1">5–8 km — ₹30</option><option value="2">8–10 km — ₹40</option></select>
-    </div>
-    <div class="total grand"><span>कुल</span><b id="grandTotal">₹0</b></div>
-    <div class="checkout">
-      <input id="customerName" placeholder="नाम">
-      <input id="customerVillage" placeholder="गांव / क्षेत्र">
-      <textarea id="customerAddress" placeholder="पूरा पता"></textarea>
-      <button class="primary full" onclick="sendOrder()">WhatsApp पर ऑर्डर भेजें</button>
-    </div>
+<div class="overlay" id="overlay" onclick="closeCart()"></div>
+<aside class="cart" id="cart">
+  <button class="close" onclick="closeCart()">✕</button>
+  <h2>🛒 आपका कार्ट</h2>
+  <div id="cartItems"></div>
+  <div class="cart-total">कुल: <b>₹<span id="cartTotal">0</span></b></div>
+  <div class="checkout">
+    <input id="customerName" placeholder="आपका नाम">
+    <input id="customerPhone" placeholder="मोबाइल नंबर">
+    <input id="customerAddress" placeholder="पूरा पता / गाँव">
+    <select id="payment"><option>Cash on Delivery</option><option>UPI / Online Payment</option></select>
+    <button onclick="placeOrder()">WhatsApp पर ऑर्डर भेजें</button>
   </div>
-</div>
+</aside>
 
 <script src="script.js"></script>
 </body>
