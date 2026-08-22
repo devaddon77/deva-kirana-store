@@ -1,5 +1,5 @@
 const products=[
-{name:"चावल",price:40,unit:"1 kg",cat:"राशन",emoji:"🍚"},
+{name:"चावल",price:45,unit:"1 kg",cat:"राशन",emoji:"🍚"},
 {name:"आटा",price:30,unit:"1 kg",cat:"राशन",emoji:"🌾"},
 {name:"दाल",price:60,unit:"1 kg",cat:"राशन",emoji:"🫘"},
 {name:"तेल",price:120,unit:"1 L",cat:"राशन",emoji:"🫗"},
