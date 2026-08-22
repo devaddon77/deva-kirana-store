@@ -1,16 +1,18 @@
-# DEVA KIRANA STORE वेबसाइट
+DEVA KIRANA STORE - WEBSITE
+=============================
 
-यह एक मोबाइल-फ्रेंडली शुरुआती वेबसाइट है।
+Files:
+- index.html       Main responsive website
+- style.css        Design and responsive layout
+- script.js        Product cart + WhatsApp ordering
+- assets/system-plan-reference.jpg  Uploaded system-plan reference
 
-## चलाने का तरीका
-1. इस ZIP को extract करें।
-2. `index.html` पर double-click करें।
-3. वेबसाइट ब्राउज़र में खुल जाएगी।
-4. सामान कार्ट में जोड़कर टेस्ट करें।
-5. ऑर्डर बटन WhatsApp पर संदेश तैयार करता है।
+HOW TO RUN:
+1. Extract the ZIP.
+2. Double-click index.html.
+3. The site works without a server.
 
-## जरूरी बातें
-- WhatsApp नंबर: 9970096337
-- यह अभी demo/trial वेबसाइट है।
-- असली online payment के लिए बाद में payment gateway जोड़ना होगा।
-- असली product prices, stock, delivery charge और फोटो आप बदल सकते हैं।
+IMPORTANT:
+- WhatsApp number is set to 9970096337.
+- Product prices in script.js are sample prices and should be updated before real use.
+- This is a front-end demo. A real admin/order database needs a backend.
