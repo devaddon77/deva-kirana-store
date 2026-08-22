@@ -1,20 +1,147 @@
 const products = [
-  { name: "चावल", category: "राशन", emoji: "🍚", price: 60, unit: "1 kg" },
-  { name: "आटा", category: "राशन", emoji: "🌾", price: 50, unit: "1 kg" },
-  { name: "दाल", category: "राशन", emoji: "🫘", price: 100, unit: "1 kg" },
-  { name: "तेल", category: "राशन", emoji: "🫗", price: 130, unit: "1 L" },
-  { name: "चीनी", category: "राशन", emoji: "🧂", price: 50, unit: "1 kg" },
-  { name: "नमक", category: "राशन", emoji: "🧂", price: 25, unit: "1 kg" },
-  { name: "मसाला", category: "राशन", emoji: "🌶️", price: 45, unit: "100 g" },
+  {
+    name: "चावल",
+    category: "राशन",
+    emoji: "🍚",
+    prices: {
+      "250 g": 14,
+      "500 g": 28,
+      "1 kg": 55
+    }
+  },
 
-  { name: "आलू", category: "सब्जी", emoji: "🥔", price: 30, unit: "1 kg" },
-  { name: "प्याज", category: "सब्जी", emoji: "🧅", price: 35, unit: "1 kg" },
-  { name: "लहसुन", category: "सब्जी", emoji: "🧄", price: 80, unit: "250 g" },
-  { name: "मिक्स सब्जी", category: "सब्जी", emoji: "🥕", price: 45, unit: "1 kg" },
+  {
+    name: "आटा",
+    category: "राशन",
+    emoji: "🌾",
+    prices: {
+      "250 g": 11,
+      "500 g": 23,
+      "1 kg": 45
+    }
+  },
 
-  { name: "बिस्कुट", category: "अन्य", emoji: "🍪", price: 30, unit: "पैक" },
-  { name: "चाय", category: "अन्य", emoji: "🍵", price: 80, unit: "पैक" },
-  { name: "साबुन", category: "अन्य", emoji: "🧼", price: 35, unit: "पीस" }
+  {
+    name: "दाल",
+    category: "राशन",
+    emoji: "🫘",
+    prices: {
+      "250 g": 25,
+      "500 g": 50,
+      "1 kg": 100
+    }
+  },
+
+  {
+    name: "तेल",
+    category: "राशन",
+    emoji: "🫗",
+    prices: {
+      "250 ml": 33,
+      "500 ml": 65,
+      "1 L": 130
+    }
+  },
+
+  {
+    name: "चीनी",
+    category: "राशन",
+    emoji: "🧂",
+    prices: {
+      "250 g": 13,
+      "500 g": 25,
+      "1 kg": 50
+    }
+  },
+
+  {
+    name: "नमक",
+    category: "राशन",
+    emoji: "🧂",
+    prices: {
+      "250 g": 6,
+      "500 g": 13,
+      "1 kg": 25
+    }
+  },
+
+  {
+    name: "मसाला",
+    category: "राशन",
+    emoji: "🌶️",
+    prices: {
+      "100 g": 45
+    }
+  },
+
+  {
+    name: "आलू",
+    category: "सब्जी",
+    emoji: "🥔",
+    prices: {
+      "250 g": 8,
+      "500 g": 15,
+      "1 kg": 30
+    }
+  },
+
+  {
+    name: "प्याज",
+    category: "सब्जी",
+    emoji: "🧅",
+    prices: {
+      "250 g": 9,
+      "500 g": 18,
+      "1 kg": 35
+    }
+  },
+
+  {
+    name: "लहसुन",
+    category: "सब्जी",
+    emoji: "🧄",
+    prices: {
+      "250 g": 80
+    }
+  },
+
+  {
+    name: "मिक्स सब्जी",
+    category: "सब्जी",
+    emoji: "🥕",
+    prices: {
+      "250 g": 11,
+      "500 g": 23,
+      "1 kg": 45
+    }
+  },
+
+  {
+    name: "बिस्कुट",
+    category: "अन्य",
+    emoji: "🍪",
+    prices: {
+      "पैक": 30
+    }
+  },
+
+  {
+    name: "चाय",
+    category: "अन्य",
+    emoji: "🍵",
+    prices: {
+      "पैक": 80
+    }
+  },
+
+  {
+    name: "साबुन",
+    category: "अन्य",
+    emoji: "🧼",
+    prices: {
+      "पीस": 35
+    }
+  }
 ];
 
 let category = "सभी";
@@ -47,27 +174,74 @@ function renderProducts() {
     p.name.toLowerCase().includes(q)
   );
 
-  document.getElementById("productGrid").innerHTML = list.map(p => `
-    <div class="product">
-      <div class="emoji">${p.emoji}</div>
-      <h3>${p.name}</h3>
-      <div class="unit">${p.unit}</div>
-      <div class="price">₹${p.price}</div>
-      <button onclick="addToCart('${p.name}')">+ कार्ट में जोड़ें</button>
-    </div>
-  `).join("");
+  document.getElementById("productGrid").innerHTML = list.map((p, index) => {
+
+    const weights = Object.keys(p.prices);
+
+    const options = weights.map(weight =>
+      `<option value="${weight}">
+        ${weight} - ₹${p.prices[weight]}
+      </option>`
+    ).join("");
+
+    return `
+      <div class="product">
+
+        <div class="emoji">${p.emoji}</div>
+
+        <h3>${p.name}</h3>
+
+        <select id="weight-${index}" class="weight-select">
+          ${options}
+        </select>
+
+        <div class="price">
+          ₹<span id="price-${index}">
+            ${p.prices[weights[0]]}
+          </span>
+        </div>
+
+        <button onclick="addSelectedProduct(${products.indexOf(p)}, ${index})">
+          + कार्ट में जोड़ें
+        </button>
+
+      </div>
+    `;
+  }).join("");
+
+  list.forEach((p, index) => {
+
+    const select = document.getElementById(`weight-${index}`);
+    const price = document.getElementById(`price-${index}`);
+
+    select.addEventListener("change", function () {
+      price.textContent = p.prices[this.value];
+    });
+
+  });
 }
 
-function addToCart(name) {
-  const p = products.find(x => x.name === name);
-  const item = cart.find(x => x.name === name);
+function addSelectedProduct(productIndex, cardIndex) {
 
-  if (item) {
-    item.qty++;
+  const product = products[productIndex];
+
+  const select = document.getElementById(`weight-${cardIndex}`);
+
+  const weight = select.value;
+
+  const price = product.prices[weight];
+
+  const existing = cart.find(
+    x => x.name === product.name && x.weight === weight
+  );
+
+  if (existing) {
+    existing.qty++;
   } else {
     cart.push({
-      name: p.name,
-      price: p.price,
+      name: product.name,
+      weight: weight,
+      price: price,
       qty: 1
     });
   }
@@ -77,36 +251,52 @@ function addToCart(name) {
 }
 
 function updateCart() {
+
   document.getElementById("cartCount").textContent =
-    cart.reduce((a, x) => a + x.qty, 0);
+    cart.reduce((total, item) => total + item.qty, 0);
 
   document.getElementById("cartItems").innerHTML =
     cart.length
-      ? cart.map((x, i) => `
+      ? cart.map((item, index) => `
         <div class="cart-row">
+
           <div>
-            <b>${x.name}</b><br>
-            ₹${x.price} × ${x.qty}
+            <b>${item.name}</b><br>
+            ${item.weight} × ₹${item.price}
           </div>
 
           <div class="qty">
-            <button onclick="changeQty(${i},-1)">−</button>
-            ${x.qty}
-            <button onclick="changeQty(${i},1)">+</button>
+
+            <button onclick="changeQty(${index}, -1)">
+              −
+            </button>
+
+            ${item.qty}
+
+            <button onclick="changeQty(${index}, 1)">
+              +
+            </button>
+
           </div>
+
         </div>
       `).join("")
       : "<p>कार्ट अभी खाली है।</p>";
 
-  document.getElementById("cartTotal").textContent =
-    cart.reduce((a, x) => a + x.price * x.qty, 0);
+  const total = cart.reduce(
+    (total, item) => total + item.price * item.qty,
+    0
+  );
+
+  document.getElementById("cartTotal").textContent = total;
 }
 
-function changeQty(i, d) {
-  cart[i].qty += d;
+function changeQty(index, change) {
 
-  if (cart[i].qty <= 0) {
-    cart.splice(i, 1);
+  cart[index].qty += change;
+
+  if (cart[index].qty <= 0) {
+    cart.splice(index, 1);
   }
 
   updateCart();
@@ -123,40 +313,51 @@ function closeCart() {
 }
 
 function placeOrder() {
+
   if (!cart.length) {
     return alert("कृपया पहले सामान कार्ट में जोड़ें।");
   }
 
-  const n = document.getElementById("customerName").value.trim();
-  const ph = document.getElementById("customerPhone").value.trim();
-  const ad = document.getElementById("customerAddress").value.trim();
-  const pay = document.getElementById("payment").value;
+  const name =
+    document.getElementById("customerName").value.trim();
 
-  if (!n || !ph || !ad) {
+  const phone =
+    document.getElementById("customerPhone").value.trim();
+
+  const address =
+    document.getElementById("customerAddress").value.trim();
+
+  const payment =
+    document.getElementById("payment").value;
+
+  if (!name || !phone || !address) {
     return alert("कृपया नाम, मोबाइल नंबर और पता भरें।");
   }
 
-  const lines = cart
-    .map(x => `${x.name} - ${x.qty} × ₹${x.price}`)
-    .join("\n");
+  const lines = cart.map(item =>
+    `${item.name} - ${item.weight} × ${item.qty} = ₹${item.price * item.qty}`
+  ).join("\n");
 
-  const total = document.getElementById("cartTotal").textContent;
+  const total =
+    document.getElementById("cartTotal").textContent;
 
-  const msg =
+  const message =
 `नमस्ते Deva Kirana Store,
+
 मुझे ऑर्डर करना है:
 
 ${lines}
 
 कुल: ₹${total}
-नाम: ${n}
-मोबाइल: ${ph}
-पता: ${ad}
-भुगतान: ${pay}`;
+
+नाम: ${name}
+मोबाइल: ${phone}
+पता: ${address}
+भुगतान: ${payment}`;
 
   window.open(
     "https://wa.me/919970096337?text=" +
-    encodeURIComponent(msg),
+    encodeURIComponent(message),
     "_blank"
   );
 }
