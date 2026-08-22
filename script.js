@@ -1,6 +1,6 @@
 const products = [
   { name: "चावल", category: "राशन", emoji: "🍚", price: 60, unit: "1 kg" },
-  { name: "आटा", category: "राशन", emoji: "🌾", price: 45, unit: "1 kg" },
+  { name: "आटा", category: "राशन", emoji: "🌾", price: 50, unit: "1 kg" },
   { name: "दाल", category: "राशन", emoji: "🫘", price: 100, unit: "1 kg" },
   { name: "तेल", category: "राशन", emoji: "🫗", price: 130, unit: "1 L" },
   { name: "चीनी", category: "राशन", emoji: "🧂", price: 50, unit: "1 kg" },
