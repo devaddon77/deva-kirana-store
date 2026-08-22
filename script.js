@@ -4,8 +4,8 @@ const products = [
     category: "राशन",
     emoji: "🍚",
     prices: {
-      "250 g": 14,
-      "500 g": 28,
+      "250 g": 15,
+      "500 g": 30,
       "1 kg": 60
     }
   },
@@ -15,8 +15,8 @@ const products = [
     category: "राशन",
     emoji: "🌾",
     prices: {
-      "250 g": 11,
-      "500 g": 23,
+      "250 g": 13,
+      "500 g": 25,
       "1 kg": 50
     }
   },
