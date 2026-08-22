@@ -6,7 +6,7 @@ const products = [
     prices: {
       "250 g": 14,
       "500 g": 28,
-      "1 kg": 55
+      "1 kg": 60
     }
   },
 
@@ -17,7 +17,7 @@ const products = [
     prices: {
       "250 g": 11,
       "500 g": 23,
-      "1 kg": 45
+      "1 kg": 50
     }
   },
 
